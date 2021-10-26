@@ -1,3 +1,5 @@
+import os
+
 from selenium.webdriver.common.by import By
 
 
@@ -8,8 +10,9 @@ class Page:
 
 
 class ComputersPage(Page):
-    _url = "http://computer-database.gatling.io/computers"
-    _apple_url = "http://computer-database.gatling.io/computers?f=apple"
+
+    _url = os.environ['COMP_DB_URL']  # "http://computer-database.gatling.io/computers"
+    _apple_url = _url + "?f=apple"
 
     def __init__(self, driver, url):
         super().__init__(driver, url)
